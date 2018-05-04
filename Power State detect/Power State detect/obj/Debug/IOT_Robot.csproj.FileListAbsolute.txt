@@ -1,0 +1,10 @@
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\bin\Debug\IOT Robot.exe.config
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\bin\Debug\IOT Robot.exe
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\bin\Debug\IOT Robot.pdb
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\Power_State_detect.Form1.resources
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT_Robot.Properties.Resources.resources
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT_Robot.csproj.GenerateResource.cache
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT_Robot.csproj.CoreCompileInputs.cache
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT Robot.exe
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT Robot.pdb
+C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT_Robot.csprojResolveAssemblyReference.cache
