@@ -25,15 +25,16 @@ namespace Power_State_detect
         public Form1()
         {
             InitializeComponent();
+            SearchPort();
         }
         #region Power State
         [DllImport("Powrprof.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            SystemEvents.PowerModeChanged += PowerChange;
-            label1.Text = "";
+            Power.Statuses.Enroll_Event();
+            //SystemEvents.PowerModeChanged += PowerChange;
+            powerstatus.Text = "";
         }
 
         private void PowerChange(object s,PowerModeChangedEventArgs e)
@@ -41,36 +42,36 @@ namespace Power_State_detect
             switch (e.Mode)
             {
                 case PowerModes.Resume:
-                    label1.Text += e.Mode.ToString() + Environment.NewLine;
+                    powerstatus.Text += e.Mode.ToString() + Environment.NewLine;
                     break;
                 case PowerModes.StatusChange:
-                    label1.Text += Check_AC_DC() + Environment.NewLine;
+                    powerstatus.Text += Check_AC_DC() + Environment.NewLine;
                     break;
                 case PowerModes.Suspend:
-                    label1.Text += e.Mode.ToString() + Environment.NewLine;
+                    powerstatus.Text += e.Mode.ToString() + Environment.NewLine;
                     break;
             }
         }
         public void System_Event_PowerModeChange(object sender, PowerModeChangedEventArgs e)
         {
-            label1.Text += e.Mode.ToString() + Environment.NewLine;
+            powerstatus.Text += e.Mode.ToString() + Environment.NewLine;
         }
 
         private void btn_S4_Click(object sender, EventArgs e)
         {
-            label1.Text += "Entering S4" + Environment.NewLine;
+            powerstatus.Text += "Entering S4" + Environment.NewLine;
             SetSuspendState(true, true, true);
         }
 
         private void btn_S3_Click(object sender, EventArgs e)
         {
-            label1.Text +="Entering S3" + Environment.NewLine;
+            powerstatus.Text +="Entering S3" + Environment.NewLine;
             SetSuspendState(false, true, true);
         }
 
         private void btn_S5_Click(object sender, EventArgs e)
         {
-            label1.Text = "Restarting" + Environment.NewLine;
+            powerstatus.Text = "Restarting" + Environment.NewLine;
             System.Diagnostics.Process.Start("C:\\WINDOWS\\system32\\shutdown.exe", "-f -r -t 0");  // -f force -r restart -t 0 after 0 second
         }
 
@@ -91,12 +92,32 @@ namespace Power_State_detect
             if (isRunningOnBattery) return "DC mode";
             else return "AC mode";
         }
+
+        /*
+        To-do       Creat a wake up timer
+        */
         #endregion
 
         #region Serial Port
 
         #region Search Arduino Port
 
+        public void SearchPort()
+        {
+            AutodetectArduinoPort();
+            if (cb_listComPort.Items.Count == 0)
+            {
+                SearchCOMPort();
+                if(cb_listComPort.Items.Count == 0)
+                {
+                    MessageBox.Show("Please Check ur USB HUB works");
+                }
+            }
+            if (cb_listComPort.Items.Count != 0)
+            {
+                btn_serial_connect.BackColor = Color.Turquoise;
+            }
+        }
         /// <summary>
         /// Auto detect the COM port Where Arduino be
         /// </summary>
@@ -117,12 +138,15 @@ namespace Power_State_detect
                     {
                         cb_listComPort.Items.Add(deviceId);
                     }
-
+                }
+                if (cb_listComPort.Items.Count == 1)
+                {
+                    cb_listComPort.SelectedIndex = 0;
                 }
             }
             catch (ManagementException e)
             {
-                lb_serial_list.Text = e.ToString();
+                //lb_serial_list.Text = e.ToString();
             }
         }
 
@@ -152,34 +176,81 @@ namespace Power_State_detect
         internal delegate void SerialPinChangedEventHandlerDelegate(
                  object sender, SerialPinChangedEventArgs e);
 
-        private async void SerialDataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
 
-        }
         private void btn_serial_connect_Click(object sender, EventArgs e)
         {
-            //cb_listComPort.SelectedIndex = 
-            //COMPORT.PortName = 
-            COMPORT.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceivedHandler);
+            if(COMPORT.IsOpen == false)
+            {
+                if (cb_listComPort.Items.Count > 0)
+                {
+                    COMPORT.PortName = cb_listComPort.SelectedItem.ToString();
+                    COMPORT.ReadTimeout = 5000;
+                    COMPORT.WriteTimeout = 5000;
+                    COMPORT.BaudRate = 9600;
 
-            AutodetectArduinoPort();
-            SearchCOMPort();
+                    COMPORT.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceivedHandler);
+                }
+            }
+
             if (btn_serial_connect.Text == "OPEN")
             {
+                try
+                {
+                    COMPORT.Open();
+                }
+                catch (IOException)
+                {
+
+                }
                 btn_serial_connect.Text = "CLOSE";
             }
             else if (btn_serial_connect.Text == "CLOSE")
             {
                 btn_serial_connect.Text = "OPEN";
+                COMPORT.Close();
             }
+ 
         }
         #endregion
 
         #region Communicate COM(Arduino) Port
+        private  async void SerialDataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            string SerialRx;
 
 
+            //Don't know why occurs Error with only 
+            //lb_serial_receive.Text = SerialRx??
+            //if (lb_serial_receive.InvokeRequired)
+            //{
+            //    lb_serial_receive.Invoke(new MethodInvoker(delegate { lb_serial_receive.Text = SerialRx; }));
+            //    return;
+            //}
+            //??
+            SerialRx = COMPORT.ReadLine();
+
+            if (COMPORT.IsOpen == true)
+            {
+                
+                Console.WriteLine(SerialRx);
+                if (SerialRx != String.Empty)
+                {
+                    this.Invoke((MethodInvoker)delegate { lb_serial_receive.Text = SerialRx; });
+                }
+            }
+        }
+
+        private void btn_serialsend_Click(object sender, EventArgs e)
+        {
+            string SerialTx;
+            SerialTx = tbx_serialsend.Text;
+            COMPORT.WriteLine(SerialTx);
+            lb_serial_send.Text = SerialTx;
+        }
         #endregion
 
         #endregion
+
+
     }
 }
