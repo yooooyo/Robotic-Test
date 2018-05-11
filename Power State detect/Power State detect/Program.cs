@@ -18,7 +18,6 @@ namespace Power_State_detect
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
-
         }
     }
 }

@@ -48,13 +48,17 @@
             this.tbx_serialsend = new System.Windows.Forms.TextBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tb_function_page = new System.Windows.Forms.TabControl();
+            this.Basic_page = new System.Windows.Forms.TabPage();
+            this.RFID_NFC_page = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_wakeupfromSec = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tb_function_page.SuspendLayout();
+            this.Basic_page.SuspendLayout();
+            this.RFID_NFC_page.SuspendLayout();
             this.SuspendLayout();
             // 
             // powerstatus
@@ -68,7 +72,7 @@
             // 
             // btn_S3
             // 
-            this.btn_S3.Location = new System.Drawing.Point(19, 74);
+            this.btn_S3.Location = new System.Drawing.Point(19, 75);
             this.btn_S3.Name = "btn_S3";
             this.btn_S3.Size = new System.Drawing.Size(75, 23);
             this.btn_S3.TabIndex = 1;
@@ -240,70 +244,106 @@
             this.trackBar2.Size = new System.Drawing.Size(283, 45);
             this.trackBar2.TabIndex = 16;
             // 
-            // tabControl1
+            // tb_function_page
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 22);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(392, 403);
-            this.tabControl1.TabIndex = 17;
+            this.tb_function_page.Controls.Add(this.Basic_page);
+            this.tb_function_page.Controls.Add(this.RFID_NFC_page);
+            this.tb_function_page.Location = new System.Drawing.Point(28, 33);
+            this.tb_function_page.Name = "tb_function_page";
+            this.tb_function_page.SelectedIndex = 0;
+            this.tb_function_page.Size = new System.Drawing.Size(392, 403);
+            this.tb_function_page.TabIndex = 17;
             // 
-            // tabPage1
+            // Basic_page
             // 
-            this.tabPage1.Controls.Add(this.btn_shutdown);
-            this.tabPage1.Controls.Add(this.trackBar2);
-            this.tabPage1.Controls.Add(this.btn_logout);
-            this.tabPage1.Controls.Add(this.trackBar1);
-            this.tabPage1.Controls.Add(this.powerstatus);
-            this.tabPage1.Controls.Add(this.tbx_serialsend);
-            this.tabPage1.Controls.Add(this.btn_S3);
-            this.tabPage1.Controls.Add(this.btn_serialsend);
-            this.tabPage1.Controls.Add(this.btn_S4);
-            this.tabPage1.Controls.Add(this.cb_listComPort);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.btn_S5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.btn_serial_connect);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.lb_serial_send);
-            this.tabPage1.Controls.Add(this.lb_serial_receive);
-            this.tabPage1.Controls.Add(this.lb_serial_list);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(384, 377);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.Basic_page.Controls.Add(this.cb_wakeupfromSec);
+            this.Basic_page.Controls.Add(this.btn_shutdown);
+            this.Basic_page.Controls.Add(this.trackBar2);
+            this.Basic_page.Controls.Add(this.btn_logout);
+            this.Basic_page.Controls.Add(this.trackBar1);
+            this.Basic_page.Controls.Add(this.powerstatus);
+            this.Basic_page.Controls.Add(this.tbx_serialsend);
+            this.Basic_page.Controls.Add(this.btn_S3);
+            this.Basic_page.Controls.Add(this.btn_serialsend);
+            this.Basic_page.Controls.Add(this.btn_S4);
+            this.Basic_page.Controls.Add(this.cb_listComPort);
+            this.Basic_page.Controls.Add(this.label6);
+            this.Basic_page.Controls.Add(this.label2);
+            this.Basic_page.Controls.Add(this.label5);
+            this.Basic_page.Controls.Add(this.btn_S5);
+            this.Basic_page.Controls.Add(this.label4);
+            this.Basic_page.Controls.Add(this.btn_serial_connect);
+            this.Basic_page.Controls.Add(this.label3);
+            this.Basic_page.Controls.Add(this.lb_serial_send);
+            this.Basic_page.Controls.Add(this.lb_serial_receive);
+            this.Basic_page.Controls.Add(this.lb_serial_list);
+            this.Basic_page.Controls.Add(this.label1);
+            this.Basic_page.Location = new System.Drawing.Point(4, 22);
+            this.Basic_page.Name = "Basic_page";
+            this.Basic_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Basic_page.Size = new System.Drawing.Size(384, 377);
+            this.Basic_page.TabIndex = 0;
+            this.Basic_page.Text = "Basic";
+            this.Basic_page.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // RFID_NFC_page
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(387, 377);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.RFID_NFC_page.Controls.Add(this.comboBox1);
+            this.RFID_NFC_page.Location = new System.Drawing.Point(4, 22);
+            this.RFID_NFC_page.Name = "RFID_NFC_page";
+            this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(3);
+            this.RFID_NFC_page.Size = new System.Drawing.Size(384, 377);
+            this.RFID_NFC_page.TabIndex = 1;
+            this.RFID_NFC_page.Text = "RFID/NFC";
+            this.RFID_NFC_page.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(35, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // cb_wakeupfromSec
+            // 
+            this.cb_wakeupfromSec.FormattingEnabled = true;
+            this.cb_wakeupfromSec.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60"});
+            this.cb_wakeupfromSec.Location = new System.Drawing.Point(171, 77);
+            this.cb_wakeupfromSec.Name = "cb_wakeupfromSec";
+            this.cb_wakeupfromSec.Size = new System.Drawing.Size(121, 21);
+            this.cb_wakeupfromSec.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(101, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Resume after                                           (sec)";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 448);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tb_function_page);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tb_function_page.ResumeLayout(false);
+            this.Basic_page.ResumeLayout(false);
+            this.Basic_page.PerformLayout();
+            this.RFID_NFC_page.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -330,9 +370,12 @@
         private System.Windows.Forms.TextBox tbx_serialsend;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tb_function_page;
+        private System.Windows.Forms.TabPage Basic_page;
+        private System.Windows.Forms.TabPage RFID_NFC_page;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_wakeupfromSec;
+        private System.Windows.Forms.Label label1;
     }
 }
 

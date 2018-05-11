@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using System.Windows.Forms;
 
+using System.ComponentModel;
+
 using System.Management;
 using System.IO;
 using System.IO.Ports;
@@ -18,17 +20,17 @@ namespace Power_State_detect
     {
         [DllImport("Powrprof.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
-        public static class Statuses
+        public class Statuses
         {
-            static string mode;
+            public string mode;
 
 
-            public static void Enroll_Event()
+            public void Enroll_Event()
             {
                 SystemEvents.PowerModeChanged += PowerChange;
             }
 
-            private static void PowerChange(object s, PowerModeChangedEventArgs e)
+            private void PowerChange(object s, PowerModeChangedEventArgs e)
             {
                 
                 switch (e.Mode)
@@ -38,21 +40,47 @@ namespace Power_State_detect
                         break;
                     case PowerModes.StatusChange:
                         mode = Check_AC_DC();
-                        //powerstatus.Text += Check_AC_DC() + Environment.NewLine;
                         break;
                     case PowerModes.Suspend:
                         mode = "Suspend";
-                        //powerstatus.Text += e.Mode.ToString() + Environment.NewLine;
                         break;
                 }
             }
 
-            private static string Check_AC_DC()
+            private string Check_AC_DC()
             {
                 Boolean isRunningOnBattery = (System.Windows.Forms.SystemInformation.PowerStatus.PowerLineStatus == PowerLineStatus.Offline);
 
                 if (isRunningOnBattery) return "DC mode";
                 else return "AC mode";
+            }
+
+            //Creat Wake up timer
+            //From https://stackoverflow.com/questions/4061844/c-how-to-wake-up-system-which-has-been-shutdown
+
+            [DllImport("kernel32.dll")]
+            public static extern IntPtr CreateWaitableTimer(IntPtr lpTimerAttributes,
+            bool bManualReset, string lpTimerName);
+
+            [DllImport("kernel32.dll")]
+            public static extern bool SetWaitableTimer(IntPtr hTimer, [In] ref long
+            pDueTime, int lPeriod, IntPtr pfnCompletionRoutine, IntPtr
+            lpArgToCompletionRoutine, bool fResume);
+
+            [DllImport("kernel32", SetLastError = true, ExactSpelling = true)]
+            public static extern Int32 WaitForSingleObject(IntPtr handle, uint
+            milliseconds);
+
+            static IntPtr handle;
+            public void SetWaitForWakeUpTime()
+            {
+                long duetime = -300000000; // negative value, so a RELATIVE due time
+                Console.WriteLine("{0:x}", duetime);
+                handle = CreateWaitableTimer(IntPtr.Zero, true, "MyWaitabletimer");
+                SetWaitableTimer(handle, ref duetime, 0, IntPtr.Zero, IntPtr.Zero, true);
+                uint INFINITE = 0xFFFFFFFF;
+                int ret = WaitForSingleObject(handle, INFINITE);
+                MessageBox.Show("Wake up call");
             }
         }
 
@@ -81,6 +109,10 @@ namespace Power_State_detect
                 System.Diagnostics.Process.Start("C:\\WINDOWS\\system32\\shutdown.exe", "-l");  //-l logout
             }
         }
+
+
+
+
 
     }
 }
