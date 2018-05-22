@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -19,7 +20,8 @@ namespace Power_State_detect
     public partial class Form1 : Form
     {
         Power.Statuses Powerstatus = new Power.Statuses();
-        Power.Options Poweroptions = new Power.Options();
+
+        DateTime WakeUpTime = DateTime.Now.AddSeconds(15);
         public Form1()
         {
             InitializeComponent();
@@ -37,41 +39,34 @@ namespace Power_State_detect
         private void btn_S4_Click(object sender, EventArgs e)
         {
             powerstatus.Text += "Entering S4" + Environment.NewLine;
-            Poweroptions.Hibernate();
-
-
-
+            Power.Options.Hibernate_t(120);
         }
 
         private void btn_S3_Click(object sender, EventArgs e)
         {
-            Powerstatus.SetWaitForWakeUpTime();
-            powerstatus.Text +="Entering S3" + Environment.NewLine;
-            Poweroptions.Sleep();
-
-            long wakeupfrom = Convert.ToInt64(cb_wakeupfromSec.Text);
-            //if (wakeupfrom > 0)
-            //{
-            //    Powerstatus.SetWaitForWakeUpTime(wakeupfrom);
-            //}
+            powerstatus.Text += "Entering S3" + Environment.NewLine;
+            //long wakeupfrom = Convert.ToInt64(cb_wakeupfromSec.Text);
+            Power.Options.Sleep_t(120);
         }
-
         private void btn_S5_Click(object sender, EventArgs e)
         {
             powerstatus.Text = "Restarting" + Environment.NewLine;
-            Poweroptions.Restart();
         }
 
         private void btn_shutdown_Click(object sender, EventArgs e)
         {
-            Poweroptions.Shutdown();
+
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
-            Poweroptions.Logout();
+
         }
 
+        private void btn_writewait_Click(object sender, EventArgs e)
+        {
+            
+        }
         #endregion
 
         #region Serial Port
@@ -225,5 +220,6 @@ namespace Power_State_detect
             
         }
         #endregion
+
     }
 }

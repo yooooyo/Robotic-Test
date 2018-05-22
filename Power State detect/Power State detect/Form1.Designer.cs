@@ -50,10 +50,12 @@
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.tb_function_page = new System.Windows.Forms.TabControl();
             this.Basic_page = new System.Windows.Forms.TabPage();
-            this.RFID_NFC_page = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btn_writewait = new System.Windows.Forms.Button();
             this.cb_wakeupfromSec = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.RFID_NFC_page = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.tb_function_page.SuspendLayout();
@@ -248,7 +250,7 @@
             // 
             this.tb_function_page.Controls.Add(this.Basic_page);
             this.tb_function_page.Controls.Add(this.RFID_NFC_page);
-            this.tb_function_page.Location = new System.Drawing.Point(28, 33);
+            this.tb_function_page.Location = new System.Drawing.Point(22, 21);
             this.tb_function_page.Name = "tb_function_page";
             this.tb_function_page.SelectedIndex = 0;
             this.tb_function_page.Size = new System.Drawing.Size(392, 403);
@@ -256,6 +258,7 @@
             // 
             // Basic_page
             // 
+            this.Basic_page.Controls.Add(this.btn_writewait);
             this.Basic_page.Controls.Add(this.cb_wakeupfromSec);
             this.Basic_page.Controls.Add(this.btn_shutdown);
             this.Basic_page.Controls.Add(this.trackBar2);
@@ -286,24 +289,14 @@
             this.Basic_page.Text = "Basic";
             this.Basic_page.UseVisualStyleBackColor = true;
             // 
-            // RFID_NFC_page
+            // btn_writewait
             // 
-            this.RFID_NFC_page.Controls.Add(this.comboBox1);
-            this.RFID_NFC_page.Location = new System.Drawing.Point(4, 22);
-            this.RFID_NFC_page.Name = "RFID_NFC_page";
-            this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(3);
-            this.RFID_NFC_page.Size = new System.Drawing.Size(384, 377);
-            this.RFID_NFC_page.TabIndex = 1;
-            this.RFID_NFC_page.Text = "RFID/NFC";
-            this.RFID_NFC_page.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(35, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.btn_writewait.Location = new System.Drawing.Point(171, 132);
+            this.btn_writewait.Name = "btn_writewait";
+            this.btn_writewait.Size = new System.Drawing.Size(75, 23);
+            this.btn_writewait.TabIndex = 19;
+            this.btn_writewait.Text = "button1";
+            this.btn_writewait.UseVisualStyleBackColor = true;
             // 
             // cb_wakeupfromSec
             // 
@@ -328,6 +321,37 @@
             this.label1.Size = new System.Drawing.Size(222, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Resume after                                           (sec)";
+            // 
+            // RFID_NFC_page
+            // 
+            this.RFID_NFC_page.Controls.Add(this.comboBox2);
+            this.RFID_NFC_page.Controls.Add(this.comboBox1);
+            this.RFID_NFC_page.Location = new System.Drawing.Point(4, 22);
+            this.RFID_NFC_page.Name = "RFID_NFC_page";
+            this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(3);
+            this.RFID_NFC_page.Size = new System.Drawing.Size(384, 377);
+            this.RFID_NFC_page.TabIndex = 1;
+            this.RFID_NFC_page.Text = "RFID/NFC";
+            this.RFID_NFC_page.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(35, 74);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "RFID",
+            "NFC"});
+            this.comboBox1.Location = new System.Drawing.Point(35, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -376,6 +400,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox cb_wakeupfromSec;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_writewait;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
