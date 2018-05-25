@@ -19,15 +19,17 @@ namespace Power_State_detect
 {
     public partial class Form1 : Form
     {
+        
         Power.Statuses Powerstatus = new Power.Statuses();
-
-        DateTime WakeUpTime = DateTime.Now.AddSeconds(15);
+        Serial serialcomm = new Serial();
+        
         public Form1()
         {
             InitializeComponent();
-            SearchPort();
+            AutodetectArduinoPort();
+            //SearchPort();
         }
-        #region Power State
+        #region Power State Form
         private void Form1_Load(object sender, EventArgs e)
         {
             Powerstatus.Enroll_Event();
@@ -94,30 +96,42 @@ namespace Power_State_detect
         /// </summary>
         public void AutodetectArduinoPort()
         {
-            ManagementScope connectionScope = new ManagementScope();
-            SelectQuery serialQuery = new SelectQuery("SELECT * FROM Win32_SerialPort");
-            ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(connectionScope, serialQuery);
+            //ManagementScope connectionScope = new ManagementScope();
+            //SelectQuery serialQuery = new SelectQuery("SELECT * FROM Win32_SerialPort");
+            //ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(connectionScope, serialQuery);
 
-            try
+            //try
+            //{
+            //    foreach (ManagementObject item in managementObjectSearcher.Get())
+            //    {
+            //        string desc = item["Description"].ToString();
+            //        string deviceId = item["DeviceID"].ToString();
+
+            //        if (desc.Contains("Arduino"))
+            //        {
+            //            cb_listComPort.Items.Add(deviceId);
+            //        }
+            //    }
+            //    if (cb_listComPort.Items.Count == 1)
+            //    {
+            //        cb_listComPort.SelectedIndex = 0;
+            //    }
+            //}
+            //catch (ManagementException e)
+            //{
+            //    //lb_serial_list.Text = e.ToString();
+            //}
+            serialcomm.AutodetectArduinoPort();
+            if (Serial.arduino_port != null )
             {
-                foreach (ManagementObject item in managementObjectSearcher.Get())
+                foreach(string comport_name in Serial.arduino_port)
                 {
-                    string desc = item["Description"].ToString();
-                    string deviceId = item["DeviceID"].ToString();
-
-                    if (desc.Contains("Arduino"))
-                    {
-                        cb_listComPort.Items.Add(deviceId);
-                    }
+                    cb_listComPort.Items.Add(comport_name);
                 }
                 if (cb_listComPort.Items.Count == 1)
                 {
                     cb_listComPort.SelectedIndex = 0;
                 }
-            }
-            catch (ManagementException e)
-            {
-                //lb_serial_list.Text = e.ToString();
             }
         }
 
@@ -215,10 +229,9 @@ namespace Power_State_detect
         #region RFID
         public void Check_RFID_NFC()
         {
-            ManagementObjectSearcher RFID_hwid_searcher = new ManagementObjectSearcher("root\\WMI", "SELECT * FROM MSWmi_PnPInstanceNames");
-            ManagementObjectCollection hwidList = RFID_hwid_searcher.Get();
             
         }
+
         #endregion
 
     }
