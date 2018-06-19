@@ -92,14 +92,17 @@ namespace Power_State_detect
 
             public static void Shutdown()
             {
+                Thread.Sleep(3000);
                 System.Diagnostics.Process.Start("C:\\WINDOWS\\system32\\shutdown.exe", "-f -s -t 0"); //-f force -s shoutdown -t 0 after 0 second
             }
             public static void Restart()
             {
+                Thread.Sleep(3000);
                 System.Diagnostics.Process.Start("C:\\WINDOWS\\system32\\shutdown.exe", "-f -r -t 0");  // -f force -r restart -t 0 after 0 second
             }
             public static void Logout()
             {
+                Thread.Sleep(3000);
                 System.Diagnostics.Process.Start("C:\\WINDOWS\\system32\\shutdown.exe", "-l");  //-l logout
             }
 

@@ -14,7 +14,6 @@ C:\Users\tsaid\Documents\Robotic_Test\Power State detect\Power State detect\obj\
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\bin\Debug\IOT Robot.exe.config
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\bin\Debug\IOT Robot.exe
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\bin\Debug\IOT Robot.pdb
-C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT_Robot.csprojResolveAssemblyReference.cache
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\Power_State_detect.Form1.resources
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT_Robot.Properties.Resources.resources
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT_Robot.csproj.GenerateResource.cache

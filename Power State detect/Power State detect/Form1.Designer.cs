@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label7;
             this.powerstatus = new System.Windows.Forms.Label();
             this.btn_S3 = new System.Windows.Forms.Button();
             this.btn_S4 = new System.Windows.Forms.Button();
@@ -50,18 +51,31 @@
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.tb_function_page = new System.Windows.Forms.TabControl();
             this.Basic_page = new System.Windows.Forms.TabPage();
-            this.btn_writewait = new System.Windows.Forms.Button();
             this.cb_wakeupfromSec = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RFID_NFC_page = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lb_RFID_NFC_Sdk_Version = new System.Windows.Forms.Label();
+            this.btn_RFID_NFC_Run = new System.Windows.Forms.Button();
+            this.list_RFID_NFC_Test_Steps = new System.Windows.Forms.ListBox();
+            this.cb_RFID_NFC_Running_Times = new System.Windows.Forms.ComboBox();
+            this.cb_RFID_NFC_Running_mode = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.tb_function_page.SuspendLayout();
             this.Basic_page.SuspendLayout();
             this.RFID_NFC_page.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(32, 65);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(154, 13);
+            label7.TabIndex = 2;
+            label7.Text = "Run                                 Times";
             // 
             // powerstatus
             // 
@@ -258,7 +272,6 @@
             // 
             // Basic_page
             // 
-            this.Basic_page.Controls.Add(this.btn_writewait);
             this.Basic_page.Controls.Add(this.cb_wakeupfromSec);
             this.Basic_page.Controls.Add(this.btn_shutdown);
             this.Basic_page.Controls.Add(this.trackBar2);
@@ -289,15 +302,6 @@
             this.Basic_page.Text = "Basic";
             this.Basic_page.UseVisualStyleBackColor = true;
             // 
-            // btn_writewait
-            // 
-            this.btn_writewait.Location = new System.Drawing.Point(171, 132);
-            this.btn_writewait.Name = "btn_writewait";
-            this.btn_writewait.Size = new System.Drawing.Size(75, 23);
-            this.btn_writewait.TabIndex = 19;
-            this.btn_writewait.Text = "button1";
-            this.btn_writewait.UseVisualStyleBackColor = true;
-            // 
             // cb_wakeupfromSec
             // 
             this.cb_wakeupfromSec.FormattingEnabled = true;
@@ -324,8 +328,13 @@
             // 
             // RFID_NFC_page
             // 
-            this.RFID_NFC_page.Controls.Add(this.comboBox2);
-            this.RFID_NFC_page.Controls.Add(this.comboBox1);
+            this.RFID_NFC_page.Controls.Add(this.groupBox1);
+            this.RFID_NFC_page.Controls.Add(this.lb_RFID_NFC_Sdk_Version);
+            this.RFID_NFC_page.Controls.Add(this.btn_RFID_NFC_Run);
+            this.RFID_NFC_page.Controls.Add(this.list_RFID_NFC_Test_Steps);
+            this.RFID_NFC_page.Controls.Add(this.cb_RFID_NFC_Running_Times);
+            this.RFID_NFC_page.Controls.Add(label7);
+            this.RFID_NFC_page.Controls.Add(this.cb_RFID_NFC_Running_mode);
             this.RFID_NFC_page.Location = new System.Drawing.Point(4, 22);
             this.RFID_NFC_page.Name = "RFID_NFC_page";
             this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(3);
@@ -334,24 +343,60 @@
             this.RFID_NFC_page.Text = "RFID/NFC";
             this.RFID_NFC_page.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // lb_RFID_NFC_Sdk_Version
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(35, 74);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
+            this.lb_RFID_NFC_Sdk_Version.AutoSize = true;
+            this.lb_RFID_NFC_Sdk_Version.Location = new System.Drawing.Point(226, 27);
+            this.lb_RFID_NFC_Sdk_Version.Name = "lb_RFID_NFC_Sdk_Version";
+            this.lb_RFID_NFC_Sdk_Version.Size = new System.Drawing.Size(0, 13);
+            this.lb_RFID_NFC_Sdk_Version.TabIndex = 7;
             // 
-            // comboBox1
+            // btn_RFID_NFC_Run
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.btn_RFID_NFC_Run.Location = new System.Drawing.Point(35, 248);
+            this.btn_RFID_NFC_Run.Name = "btn_RFID_NFC_Run";
+            this.btn_RFID_NFC_Run.Size = new System.Drawing.Size(75, 23);
+            this.btn_RFID_NFC_Run.TabIndex = 6;
+            this.btn_RFID_NFC_Run.Text = "Run";
+            this.btn_RFID_NFC_Run.UseVisualStyleBackColor = true;
+            this.btn_RFID_NFC_Run.Click += new System.EventHandler(this.btn_RFID_NFC_Run_Click);
+            // 
+            // list_RFID_NFC_Test_Steps
+            // 
+            this.list_RFID_NFC_Test_Steps.FormattingEnabled = true;
+            this.list_RFID_NFC_Test_Steps.Location = new System.Drawing.Point(35, 104);
+            this.list_RFID_NFC_Test_Steps.Name = "list_RFID_NFC_Test_Steps";
+            this.list_RFID_NFC_Test_Steps.Size = new System.Drawing.Size(227, 121);
+            this.list_RFID_NFC_Test_Steps.TabIndex = 5;
+            // 
+            // cb_RFID_NFC_Running_Times
+            // 
+            this.cb_RFID_NFC_Running_Times.FormattingEnabled = true;
+            this.cb_RFID_NFC_Running_Times.Location = new System.Drawing.Point(66, 62);
+            this.cb_RFID_NFC_Running_Times.Name = "cb_RFID_NFC_Running_Times";
+            this.cb_RFID_NFC_Running_Times.Size = new System.Drawing.Size(72, 21);
+            this.cb_RFID_NFC_Running_Times.TabIndex = 1;
+            // 
+            // cb_RFID_NFC_Running_mode
+            // 
+            this.cb_RFID_NFC_Running_mode.FormattingEnabled = true;
+            this.cb_RFID_NFC_Running_mode.Items.AddRange(new object[] {
             "RFID",
-            "NFC"});
-            this.comboBox1.Location = new System.Drawing.Point(35, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            "NFC",
+            "Device No Found"});
+            this.cb_RFID_NFC_Running_mode.Location = new System.Drawing.Point(35, 23);
+            this.cb_RFID_NFC_Running_mode.Name = "cb_RFID_NFC_Running_mode";
+            this.cb_RFID_NFC_Running_mode.Size = new System.Drawing.Size(90, 21);
+            this.cb_RFID_NFC_Running_mode.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(157, 257);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 45);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // Form1
             // 
@@ -368,6 +413,7 @@
             this.Basic_page.ResumeLayout(false);
             this.Basic_page.PerformLayout();
             this.RFID_NFC_page.ResumeLayout(false);
+            this.RFID_NFC_page.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -397,11 +443,14 @@
         private System.Windows.Forms.TabControl tb_function_page;
         private System.Windows.Forms.TabPage Basic_page;
         private System.Windows.Forms.TabPage RFID_NFC_page;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_RFID_NFC_Running_mode;
         private System.Windows.Forms.ComboBox cb_wakeupfromSec;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_writewait;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_RFID_NFC_Running_Times;
+        private System.Windows.Forms.ListBox list_RFID_NFC_Test_Steps;
+        private System.Windows.Forms.Button btn_RFID_NFC_Run;
+        private System.Windows.Forms.Label lb_RFID_NFC_Sdk_Version;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
