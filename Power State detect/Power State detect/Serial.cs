@@ -11,15 +11,15 @@ using System.Collections;
 namespace Power_State_detect
 {
     
-    public class Serial
+    public static class Serial
     {
-        public SerialPort COMPORT = new SerialPort();
-        public ArrayList arduino_port = new ArrayList();
+        public static SerialPort COMPORT = new SerialPort();
+        public static ArrayList arduino_port = new ArrayList();
 
         /// <summary>
-        /// Auto detect the COM port Where Arduino be
+        /// Auto detect what COM port Arduino be
         /// </summary>
-        public void AutodetectArduinoPort()
+        public static void AutodetectArduinoPort()
         {
             //Search Arduino Port
             ManagementScope connectionScope = new ManagementScope();
@@ -49,6 +49,7 @@ namespace Power_State_detect
             }
         }
 
+        #region Serial Setting
         /// <summary>
         /// Auto detect the Arduino COM port 
         /// </summary>
@@ -58,7 +59,7 @@ namespace Power_State_detect
         internal delegate void SerialPinChangedEventHandlerDelegate(
                  object sender, SerialPinChangedEventArgs e);
 
-        public void Serial_Connect(string Port)
+        public static void Serial_Connect(string Port)
         {
             if (!COMPORT.IsOpen)
             {
@@ -80,7 +81,7 @@ namespace Power_State_detect
             }
         }
 
-        public void Serial_DisConnect()
+        public static void Serial_DisConnect()
         {
             if (COMPORT.IsOpen)
             {
@@ -90,27 +91,29 @@ namespace Power_State_detect
 
 
         static string SerialRx;
-        private async void SerialDataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        private static async void SerialDataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialRx = COMPORT.ReadLine();
         }
 
-        static string SerialTx;
-        public void Serial_Send(string cmd)
+        public static void Serial_Send(string cmd)
         {
             COMPORT.WriteLine(cmd);
+            FileManage.LogWirter(@".\Logs.txt", cmd);
         }
-
-
-        public void SetPos(int pos,int interval)
+        #endregion
+        #region Servo Control
+        public static void SetPos(int pos,int interval)
         {
             interval = 15;
             Serial_Send("FF" + pos.ToString("D3")+ interval.ToString("D3") + "FF");
         }
-        public void SetPos(int pos)
+        public static void SetPos(int pos)
         {
             int interval = 15;
-            Serial_Send("FF" + pos.ToString("D3") + interval.ToString("D3") + "FF");
+            string command = "FF" + pos.ToString("D3") + interval.ToString("D3") + "FF";
+            Serial_Send(command);
         }
+        #endregion
     }
 }

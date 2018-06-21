@@ -11,7 +11,7 @@ namespace Power_State_detect
 {
     class FileManage
     {
-        public void LogWirter(string path, string context)
+        public static void LogWirter(string path, string context)
         {
             #region Format type
             //    d --> 11/19/2012
@@ -33,7 +33,7 @@ namespace Power_State_detect
             string TimeNow = timeNow.ToString(timeNow_type);
 
             TextWriter writer = new StreamWriter(path,true);
-            writer.WriteLine("-->" + TimeNow + context);
+            writer.WriteLine("-->" + TimeNow+" "+ context);
             writer.Close();
         }
     }

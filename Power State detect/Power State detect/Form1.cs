@@ -22,7 +22,6 @@ namespace Power_State_detect
     {
         Power.Statuses Powerstatus = new Power.Statuses();
         Proximity Proximity = new Proximity();
-        Serial serialcomm = new Serial();
         
         public Form1()
         {
@@ -91,11 +90,11 @@ namespace Power_State_detect
         /// </summary>
         public void ComboBox_List_Portx()
         {
-            serialcomm.AutodetectArduinoPort();
-            if (serialcomm.arduino_port.Count >= 0 )
+            Serial.AutodetectArduinoPort();
+            if (Serial.arduino_port.Count >= 0 )
             {
                 btn_serial_connect.BackColor = Color.Turquoise;
-                foreach (string comport_name in serialcomm.arduino_port)
+                foreach (string comport_name in Serial.arduino_port)
                 {
                     cb_listComPort.Items.Add(comport_name);
                 }
@@ -103,6 +102,15 @@ namespace Power_State_detect
                 {
                     cb_listComPort.SelectedIndex = 0;
                 }
+            }
+            else
+            {
+                btn_serial_connect.Enabled = false;
+                cb_listComPort.Enabled = false;
+                tbx_serialsend.Enabled = false;
+                btn_serialsend.Enabled = false;
+                tb_function_page.Controls.Remove(RFID_NFC_page);
+                MessageBox.Show("No any COM port");
             }
         }
 
@@ -113,25 +121,34 @@ namespace Power_State_detect
 
         private void btn_serial_connect_Click(object sender, EventArgs e)
         {
-            if( (btn_serial_connect.Text == "OPEN" && btn_serial_connect.BackColor == Color.Turquoise) || (btn_serial_connect.Text == "CLOSE") )
+            if( (btn_serial_connect.Text == "OPEN" && btn_serial_connect.BackColor == Color.Turquoise) || (btn_serial_connect.Text == "CLOSE") && btn_serial_connect.BackColor == Color.Turquoise )
             {
                 if (cb_listComPort.Items.Count > 0)
                 {
-                    serialcomm.Serial_Connect( cb_listComPort.SelectedItem.ToString() );
-                    if (serialcomm.COMPORT.IsOpen)
+                    Serial.Serial_Connect( cb_listComPort.SelectedItem.ToString() );
+                    if (Serial.COMPORT.IsOpen)             //Check Serial is opening
                     {
                         btn_serial_connect.Text = "CLOSE";
+                        MessageBox.Show("Serial OPEN Success");
                     }
-                    else
+                    else                                       //Serial Opened fail
                     {
-
+                        MessageBox.Show("Serial OPEN fail");
                     }
                 }
             }
             else if(btn_serial_connect.Text == "OPEN" && btn_serial_connect.BackColor == Color.Salmon)
             {
-                serialcomm.Serial_DisConnect();
-                btn_serial_connect.Text = "CLOSE";
+                try
+                {
+                    //try disconnect if the connection not establish
+                    Serial.Serial_DisConnect();
+                }
+                catch (Exception)
+                {
+                    
+                }
+                
             }
  
         }
@@ -159,7 +176,7 @@ namespace Power_State_detect
             //    SerialTx = tbx_serialsend.Text;
             //    COMPORT.WriteLine(SerialTx);
             //    lb_serial_send.Text = SerialTx;
-            serialcomm.Serial_Send(tbx_serialsend.Text);
+            Serial.Serial_Send(tbx_serialsend.Text);
         }
         #endregion
 
@@ -189,7 +206,9 @@ namespace Power_State_detect
 
         private void btn_RFID_NFC_Run_Click(object sender, EventArgs e)
         {
+            Proximity.Testcycles_Set = Convert.ToUInt32(cb_RFID_NFC_Running_Times.Text);
             Proximity.Run_test();
+            
         }
 
         #endregion

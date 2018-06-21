@@ -129,7 +129,6 @@ namespace Power_State_detect
                 System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETACVALUEINDEX SCHEME_CURRENT 238c9fa8 - 0aad - 41ed - 83f4 - 97be242c8f20 bd3b718a-0680 - 4d9d - 8ab2 - e1d2b4ac806d 2");
                 System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8 - 0aad - 41ed - 83f4 - 97be242c8f20 bd3b718a-0680 - 4d9d - 8ab2 - e1d2b4ac806d 2");
                 
-                bool TimerReady;
                 DateTime sleepon = DateTime.Now;
                 DateTime wakeon  = DateTime.Now.AddSeconds(ResumeFromSec);
                 long duetime = wakeon.ToFileTime();
