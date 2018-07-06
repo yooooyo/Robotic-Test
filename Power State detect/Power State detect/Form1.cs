@@ -28,12 +28,25 @@ namespace Power_State_detect
             InitializeComponent();
             ComboBox_List_Portx();
             ComboBox_Choose_RFID_NFC();
+
+            Proximity.OnMyValueChanged += new Proximity.MyValueChanged(Update_UI);
         }
         #region Power State Form
         private void Form1_Load(object sender, EventArgs e)
         {
             Powerstatus.Enroll_Event();
             powerstatus.Text = "";
+        }
+        public void Update_UI()
+        {
+            FileManage.LogWirter(@".\Logs.txt", "UI UPDATE: "+ Environment.NewLine + "Total :" 
+                    + Proximity.Total.ToString() + Environment.NewLine+ "Success :" 
+                    + Proximity.Success.ToString() + Environment.NewLine + "Fail :" 
+                    + Proximity.Fail.ToString() + Environment.NewLine);
+
+            lb_RFID_NFC_total.Text = Proximity.Total.ToString();
+            lb_RFID_NFC_success.Text = Proximity.Success.ToString();
+            lb_RFID_NFC_fail.Text = Proximity.Fail.ToString();
         }
 
         private void btn_S3_Click(object sender, EventArgs e)
@@ -184,6 +197,10 @@ namespace Power_State_detect
 
 
         #region RFID/NFC
+
+        /// <summary>
+        /// Let cb_RFID_NFC_Running_mode to display what kind of mode to use and display the SDK versions
+        /// </summary>
         public void ComboBox_Choose_RFID_NFC()
         {
             Proximity.Check_RFID_NFC();
@@ -206,11 +223,22 @@ namespace Power_State_detect
 
         private void btn_RFID_NFC_Run_Click(object sender, EventArgs e)
         {
-            Proximity.Testcycles_Set = Convert.ToUInt32(cb_RFID_NFC_Running_Times.Text);
-            Proximity.Run_test();
-            
-        }
+            if (cb_RFID_NFC_Running_Times.Text != "")
+            {
+                Proximity.Testcycles_Set = Convert.ToUInt32(cb_RFID_NFC_Running_Times.Text);
+                Proximity.Run_test();
+            }
+            else MessageBox.Show("Please Enter Running times");
 
+            if (ck_RFID_NFC_Test_S3.Checked)
+            {
+                Proximity.S3_flag = ck_RFID_NFC_Test_S3.Checked;
+            }
+            if (ck_RFID_NFC_Test_S4.Checked)
+            {
+                Proximity.S4_flag = ck_RFID_NFC_Test_S4.Checked;
+            }
+        }
         #endregion
 
 

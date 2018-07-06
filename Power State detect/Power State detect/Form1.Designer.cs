@@ -54,14 +54,22 @@
             this.cb_wakeupfromSec = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RFID_NFC_page = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lb_RFID_NFC_success = new System.Windows.Forms.Label();
+            this.lb_RFID_NFC_fail = new System.Windows.Forms.Label();
+            this.lb_RFID_NFC_total = new System.Windows.Forms.Label();
+            this.btn_RFID_NFC_Stop = new System.Windows.Forms.Button();
+            this.btn_RFID_NFC_Pause = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_RFID_NFC_Sdk_Version = new System.Windows.Forms.Label();
             this.btn_RFID_NFC_Run = new System.Windows.Forms.Button();
             this.list_RFID_NFC_Test_Steps = new System.Windows.Forms.ListBox();
             this.cb_RFID_NFC_Running_Times = new System.Windows.Forms.ComboBox();
             this.cb_RFID_NFC_Running_mode = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_RFID_NFC_Bar = new System.Windows.Forms.ProgressBar();
+            this.ck_RFID_NFC_Test_S3 = new System.Windows.Forms.CheckBox();
+            this.ck_RFID_NFC_Test_S4 = new System.Windows.Forms.CheckBox();
+            this.cb_RFID_NFC_wake_timer = new System.Windows.Forms.ComboBox();
             label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
@@ -331,8 +339,16 @@
             // 
             // RFID_NFC_page
             // 
-            this.RFID_NFC_page.Controls.Add(this.button2);
-            this.RFID_NFC_page.Controls.Add(this.button1);
+            this.RFID_NFC_page.Controls.Add(this.cb_RFID_NFC_wake_timer);
+            this.RFID_NFC_page.Controls.Add(this.ck_RFID_NFC_Test_S4);
+            this.RFID_NFC_page.Controls.Add(this.ck_RFID_NFC_Test_S3);
+            this.RFID_NFC_page.Controls.Add(this.btn_RFID_NFC_Bar);
+            this.RFID_NFC_page.Controls.Add(this.label8);
+            this.RFID_NFC_page.Controls.Add(this.lb_RFID_NFC_success);
+            this.RFID_NFC_page.Controls.Add(this.lb_RFID_NFC_fail);
+            this.RFID_NFC_page.Controls.Add(this.lb_RFID_NFC_total);
+            this.RFID_NFC_page.Controls.Add(this.btn_RFID_NFC_Stop);
+            this.RFID_NFC_page.Controls.Add(this.btn_RFID_NFC_Pause);
             this.RFID_NFC_page.Controls.Add(this.groupBox1);
             this.RFID_NFC_page.Controls.Add(this.btn_RFID_NFC_Run);
             this.RFID_NFC_page.Controls.Add(this.list_RFID_NFC_Test_Steps);
@@ -347,6 +363,81 @@
             this.RFID_NFC_page.Text = "RFID/NFC";
             this.RFID_NFC_page.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Mode";
+            // 
+            // lb_RFID_NFC_success
+            // 
+            this.lb_RFID_NFC_success.AutoSize = true;
+            this.lb_RFID_NFC_success.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_RFID_NFC_success.ForeColor = System.Drawing.Color.Turquoise;
+            this.lb_RFID_NFC_success.Location = new System.Drawing.Point(153, 276);
+            this.lb_RFID_NFC_success.Name = "lb_RFID_NFC_success";
+            this.lb_RFID_NFC_success.Size = new System.Drawing.Size(86, 46);
+            this.lb_RFID_NFC_success.TabIndex = 10;
+            this.lb_RFID_NFC_success.Text = "000";
+            this.lb_RFID_NFC_success.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lb_RFID_NFC_fail
+            // 
+            this.lb_RFID_NFC_fail.AutoSize = true;
+            this.lb_RFID_NFC_fail.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_RFID_NFC_fail.ForeColor = System.Drawing.Color.Salmon;
+            this.lb_RFID_NFC_fail.Location = new System.Drawing.Point(279, 276);
+            this.lb_RFID_NFC_fail.Name = "lb_RFID_NFC_fail";
+            this.lb_RFID_NFC_fail.Size = new System.Drawing.Size(86, 46);
+            this.lb_RFID_NFC_fail.TabIndex = 10;
+            this.lb_RFID_NFC_fail.Text = "000";
+            this.lb_RFID_NFC_fail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lb_RFID_NFC_total
+            // 
+            this.lb_RFID_NFC_total.AutoSize = true;
+            this.lb_RFID_NFC_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_RFID_NFC_total.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lb_RFID_NFC_total.Location = new System.Drawing.Point(27, 276);
+            this.lb_RFID_NFC_total.Name = "lb_RFID_NFC_total";
+            this.lb_RFID_NFC_total.Size = new System.Drawing.Size(86, 46);
+            this.lb_RFID_NFC_total.TabIndex = 10;
+            this.lb_RFID_NFC_total.Text = "000";
+            this.lb_RFID_NFC_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btn_RFID_NFC_Stop
+            // 
+            this.btn_RFID_NFC_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RFID_NFC_Stop.Location = new System.Drawing.Point(285, 328);
+            this.btn_RFID_NFC_Stop.Name = "btn_RFID_NFC_Stop";
+            this.btn_RFID_NFC_Stop.Size = new System.Drawing.Size(75, 23);
+            this.btn_RFID_NFC_Stop.TabIndex = 9;
+            this.btn_RFID_NFC_Stop.Text = "STOP";
+            this.btn_RFID_NFC_Stop.UseVisualStyleBackColor = true;
+            // 
+            // btn_RFID_NFC_Pause
+            // 
+            this.btn_RFID_NFC_Pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RFID_NFC_Pause.Location = new System.Drawing.Point(159, 328);
+            this.btn_RFID_NFC_Pause.Name = "btn_RFID_NFC_Pause";
+            this.btn_RFID_NFC_Pause.Size = new System.Drawing.Size(75, 23);
+            this.btn_RFID_NFC_Pause.TabIndex = 9;
+            this.btn_RFID_NFC_Pause.Text = "PAUSE";
+            this.btn_RFID_NFC_Pause.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lb_RFID_NFC_Sdk_Version);
+            this.groupBox1.Location = new System.Drawing.Point(35, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 45);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "RFID SDK";
+            // 
             // lb_RFID_NFC_Sdk_Version
             // 
             this.lb_RFID_NFC_Sdk_Version.AutoSize = true;
@@ -357,7 +448,8 @@
             // 
             // btn_RFID_NFC_Run
             // 
-            this.btn_RFID_NFC_Run.Location = new System.Drawing.Point(35, 279);
+            this.btn_RFID_NFC_Run.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RFID_NFC_Run.Location = new System.Drawing.Point(33, 328);
             this.btn_RFID_NFC_Run.Name = "btn_RFID_NFC_Run";
             this.btn_RFID_NFC_Run.Size = new System.Drawing.Size(75, 23);
             this.btn_RFID_NFC_Run.TabIndex = 6;
@@ -388,44 +480,58 @@
             "RFID",
             "NFC",
             "Device No Found"});
-            this.cb_RFID_NFC_Running_mode.Location = new System.Drawing.Point(35, 23);
+            this.cb_RFID_NFC_Running_mode.Location = new System.Drawing.Point(72, 23);
             this.cb_RFID_NFC_Running_mode.Name = "cb_RFID_NFC_Running_mode";
-            this.cb_RFID_NFC_Running_mode.Size = new System.Drawing.Size(90, 21);
+            this.cb_RFID_NFC_Running_mode.Size = new System.Drawing.Size(124, 21);
             this.cb_RFID_NFC_Running_mode.TabIndex = 0;
             // 
-            // groupBox1
+            // btn_RFID_NFC_Bar
             // 
-            this.groupBox1.Controls.Add(this.lb_RFID_NFC_Sdk_Version);
-            this.groupBox1.Location = new System.Drawing.Point(35, 50);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(166, 45);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "RFID SDK";
+            this.btn_RFID_NFC_Bar.Location = new System.Drawing.Point(29, 357);
+            this.btn_RFID_NFC_Bar.Name = "btn_RFID_NFC_Bar";
+            this.btn_RFID_NFC_Bar.Size = new System.Drawing.Size(337, 10);
+            this.btn_RFID_NFC_Bar.TabIndex = 12;
             // 
-            // button1
+            // ck_RFID_NFC_Test_S3
             // 
-            this.button1.Location = new System.Drawing.Point(135, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "PAUSE";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ck_RFID_NFC_Test_S3.AutoSize = true;
+            this.ck_RFID_NFC_Test_S3.Location = new System.Drawing.Point(268, 104);
+            this.ck_RFID_NFC_Test_S3.Name = "ck_RFID_NFC_Test_S3";
+            this.ck_RFID_NFC_Test_S3.Size = new System.Drawing.Size(39, 17);
+            this.ck_RFID_NFC_Test_S3.TabIndex = 13;
+            this.ck_RFID_NFC_Test_S3.Text = "S3";
+            this.ck_RFID_NFC_Test_S3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ck_RFID_NFC_Test_S4
             // 
-            this.button2.Location = new System.Drawing.Point(235, 279);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "STOP";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ck_RFID_NFC_Test_S4.AutoSize = true;
+            this.ck_RFID_NFC_Test_S4.Location = new System.Drawing.Point(268, 128);
+            this.ck_RFID_NFC_Test_S4.Name = "ck_RFID_NFC_Test_S4";
+            this.ck_RFID_NFC_Test_S4.Size = new System.Drawing.Size(39, 17);
+            this.ck_RFID_NFC_Test_S4.TabIndex = 14;
+            this.ck_RFID_NFC_Test_S4.Text = "S4";
+            this.ck_RFID_NFC_Test_S4.UseVisualStyleBackColor = true;
+            // 
+            // cb_RFID_NFC_wake_timer
+            // 
+            this.cb_RFID_NFC_wake_timer.FormattingEnabled = true;
+            this.cb_RFID_NFC_wake_timer.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60"});
+            this.cb_RFID_NFC_wake_timer.Location = new System.Drawing.Point(267, 163);
+            this.cb_RFID_NFC_wake_timer.Name = "cb_RFID_NFC_wake_timer";
+            this.cb_RFID_NFC_wake_timer.Size = new System.Drawing.Size(81, 21);
+            this.cb_RFID_NFC_wake_timer.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 448);
+            this.ClientSize = new System.Drawing.Size(446, 452);
             this.Controls.Add(this.tb_function_page);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -476,8 +582,16 @@
         private System.Windows.Forms.Button btn_RFID_NFC_Run;
         private System.Windows.Forms.Label lb_RFID_NFC_Sdk_Version;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_RFID_NFC_Stop;
+        private System.Windows.Forms.Button btn_RFID_NFC_Pause;
+        private System.Windows.Forms.Label lb_RFID_NFC_total;
+        private System.Windows.Forms.Label lb_RFID_NFC_fail;
+        private System.Windows.Forms.Label lb_RFID_NFC_success;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ProgressBar btn_RFID_NFC_Bar;
+        private System.Windows.Forms.ComboBox cb_RFID_NFC_wake_timer;
+        private System.Windows.Forms.CheckBox ck_RFID_NFC_Test_S4;
+        private System.Windows.Forms.CheckBox ck_RFID_NFC_Test_S3;
     }
 }
 
