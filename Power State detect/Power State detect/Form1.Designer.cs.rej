@@ -1,0 +1,10 @@
+diff a/Power State detect/Power State detect/Form1.Designer.cs b/Power State detect/Power State detect/Form1.Designer.cs	(rejected hunks)
+@@ -72,7 +72,7 @@
+             // 
+             // btn_S3
+             // 
+-            this.btn_S3.Location = new System.Drawing.Point(19, 74);
++            this.btn_S3.Location = new System.Drawing.Point(19, 75);
+             this.btn_S3.Name = "btn_S3";
+             this.btn_S3.Size = new System.Drawing.Size(75, 23);
+             this.btn_S3.TabIndex = 1;

@@ -1,0 +1,138 @@
+COMPONENT HID CHANGELOG
+
+01/30/2017 - 8.0
+ * Majar release 
+
+11/28/2016 - 7.2
+ * Artifact 17793:MultiPointTouchTest failing with TPK Touch
+
+10/31/2016 - 7.1
+ * Artifact 17143:NFC test pass, but vision show fail
+
+06/13/2016 - 7.0
+ * Major Release
+ * Artifact 13604:Finger Print Reader module Touch type [Metallica 8x8, VFS7552]
+
+02/15/2016 - 6.0
+ * Artifact 12374:Diagnostic name suffix is not unified
+
+07/27/2015 - 5.2
+ * Update the Fingerprint reader test to use new mechanism suggested for Win 8(Task 9602) 
+ * Fix for Diag pointers not deleted in DiagnosticManager (artf9818)
+
+04/27/2015 - 5.1
+ * Artifact 7805:LCD testing vision can’t cover LCD abnormal lines in a foolproof way
+
+03/23/2015 - 5.0
+ * Factory Impediment 7650: CDM Fails to properly parse SMBIOS on some platforms.
+
+01/26/2015 - 4.19
+ * [Bazooka]DoubleTouchTest can only run in Win7 system.Win 8.1 supported tool is required.(Factory Artifact 3785)
+ * 2015 Classic Cars AiO Fingerprint Sensor Module - need a Vision diagnostics test. (Factory Artifact 3219)
+
+11/24/2014 - 4.18
+ * UPDATE: Proximity Sensor testing for Kitkat/Olympia(Factory Artifact 1318)
+ * Fixed: Blaster  MultiPointTouchTest fail(Factory Artifact 3450)
+
+10/27/2014 - 4.17
+ * Add snapshot feature for TouchScreenVerificationTest(Factory Artifact 3251)
+
+09/22/2014 - 4.16
+ * [SS14] Touch Panel Test jump cursor issue(Factory Artifact 1776)
+
+07/28/14 - 4.15
+ *  Fixed NFCDeviceObject.OpenHandle() assigning wrong memory size that is exceeding expected size causing diagnostic to crash on NFCProximityTest (1772)
+ *  Proximity Sensor testing for Kitkat/Olympia (Factory Artifact 1318)
+
+06/23/2014 - 4.14
+ * Implement TiledPopups feature to all the pop window in diags for June release (Factory Artifact 1464)
+
+02/24/2014 - 4.13
+ * New Changes Required on Reporting Rate test and Multi touch point test (artf110754)
+
+01/27/2014 - 4.12
+ * Issue fixed [Astro 2.0] NFCTest failed with data collection XML log corrupted (artf3106566)
+ * MultipointTouchTest will now only check ReportingRate when all bars have filled to maximum (artf2966022)
+
+10/28/2013 - 4.11
+ * New Changes Required on Reporting Rate test and Multi touch point test (artf2966022)
+
+09/23/2013 - 4.10
+ * New Test development for NFC Devices on AiO Platforms_to work with Proximity Driver(artf2498940)
+
+ 08/26/2013 - 4.9
+ * New Test development for NFC Devices on AiO Platforms_to work with Proximity Drive (artf2498940)
+ * NFCProximityTest provides too little time to easily pass the test (artf2811636)
+ 
+06/24/2013 - 4.8
+ * Support Touch Pad multi-touch test for notebook, and put this test into DoubleTouchTest(artf2586159)
+
+05/28/2013 - 4.7
+ * New Test development for NFC Devices on AiO Platforms_to work with Proximity Driver(artf2498940)
+ * Add arguments list for each subtest in DataCollection XML file (artf2588088)
+ * Adding a ReRun Counter to the Subtest Node for the DataCollection XML Output (artf2509970)
+ * DataCollectionFile option doesn't check for diag name when we try to write to to the same file from multiple diags (artf2605635)
+ * Added an improvement to MultiPointTouchTest which changes the hand images used based on how many touch points were included. (artf1751832)
+
+04/22/2013 - 4.6.1
+ * Added debug information to MultiPointTouchTest (artf1751832)
+
+04/22/2013 - 4.6
+ * Added debug information to MultiPointTouchTest (artf1751832)
+ * FFE Debug Tab doesn't populate parameter values from -Paramfile and -ParamSection correctly (artf2504715)
+
+02/06/2013 - 4.5.1
+ * Need retry information for Data Collection (artf1954410)
+
+01/28/2013 - 4.5
+ * Added code for retry information for Data Collection (artf1954410)
+
+11/26/2012 - 4.4
+ * Add message texts for 21 locales. (artf2036234)
+ * Added functionality to format NFC tag in WRC action and new action "InitializeTag" (artf2148141)
+ * Updated MultiPointTouchTest code to load DLL at run time to avoid EXE crash on lower OS (artf2145958)
+ * Bug fix in Actual to get the Table with all the properties in actual.xml if some properties are not present in the system (artf2098646)
+
+10/22/2012 - 4.3
+ * Added "GenerateCPLC" action for NFCTest (artf2081257)
+ * Bug fix to handle lower case value for -Action param (artf1876519)
+ * Vision diagnostics are need to handle user abort during command line execution (artf2084765)
+
+09/13/2012 - 4.2.1
+ * Enable multiPointTest on win8 (artf2132742)
+
+08/27/2012 - 4.2
+ * Added the write action "WRC" to the new NFCTest (artf1876519)
+
+07/23/2012 - 4.1
+ * Added mouse pointer disablement to MultiPointTouchTest (artf1972606)
+ * Added integratormsgfile parameter. (artf1972606)
+ * Added new NFc test (artf1876519)
+
+06/25/2012 - 4.0 
+ * Added Prompt Locking Mechanism for certain tests (artf1790502)
+ * Localize all the Messages in the diagnostics - PopWindow and other Visible screen (artf1921172)
+ * win 8 vision drivers enablement (artf1940605)
+ * New support to read command line parameters from INI file (artf1960401)
+
+04/23/2012 - 3.6
+ * New Test for Projected Capacitive Touch on AiO Platforms (artf1751832)
+
+10/24/2011 - 3.5
+ * Picture disappears from Prompt box when screen refresh(artf1551924)
+
+08/29/2011 - 3.4
+ * Added code to handle windows errors on unsupported OS (artf151328)
+
+06/27/2011 - 3.3
+ * Added code in PopWindow to support displaying image along with text (artf1260198)
+
+09/27/2010 - 3.2
+ * Added support to display english string, in case the strings for specified locale are missing (artf896951)
+
+05/24/2010 - 3.1
+ * Added new parameter ScanDataMinSize (artf626678)
+ * Added new subtest FingerPrintTest (artf626678)
+ * Added new subtest DoubleTouchTest (artf622224)
+
+

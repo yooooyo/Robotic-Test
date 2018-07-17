@@ -1,0 +1,8 @@
+diff a/Power State detect/Power State detect/obj/Debug/IOT_Robot.csproj.FileListAbsolute.txt b/Power State detect/Power State detect/obj/Debug/IOT_Robot.csproj.FileListAbsolute.txt	(rejected hunks)
+@@ -8,3 +8,6 @@
+ C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT Robot.exe
+ C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT Robot.pdb
+ C:\Users\TDAVID2\Documents\Csharp\App\Power State detect\Power State detect\Power State detect\obj\Debug\IOT_Robot.csprojResolveAssemblyReference.cache
++C:\Users\tsaid\Documents\Robotic_Test\Power State detect\Power State detect\bin\Debug\IOT Robot.exe.config
++C:\Users\tsaid\Documents\Robotic_Test\Power State detect\Power State detect\obj\Debug\IOT Robot.exe
++C:\Users\tsaid\Documents\Robotic_Test\Power State detect\Power State detect\obj\Debug\IOT Robot.pdb
