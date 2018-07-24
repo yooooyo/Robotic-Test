@@ -242,9 +242,9 @@ namespace Power_State_detect
         /// Load the setting to run test, run baseline check
         /// </summary>
         ArrayList result = new ArrayList();
-        public int InitPos = 60;
-        public int TargetPos = new int();
-        private void pre_Operation_test()
+        public static int InitPos = 60;
+        public static int TargetPos = new int();
+        public void pre_Operation_test()
         {
             if(result != null || result.Count!=0) result.Clear();
             for (int pos = 60; pos >= 0; pos -= 10)
@@ -321,7 +321,7 @@ namespace Power_State_detect
         #endregion
         //static bool operation_enable;
         #region variable
-        private bool Baseline_check = new bool();
+        public static bool Baseline_check = new bool();
         static int pos;
         public static UInt32 _Total, _Success, _Fail;
         public static bool S3_flag, S4_flag = new bool();
@@ -374,6 +374,21 @@ namespace Power_State_detect
             _TapBack = Tapback();
             Thread.Sleep(1000);
         }
+        public bool Tap()
+        {
+            int _TapTo, _TapBack;
+
+            //_TapTo = ChooseFun(TargetPos);
+            _TapTo = Tapto();
+            Thread.Sleep(1000);
+
+            //_TapBack = ChooseFun(InitPos);
+            _TapBack = Tapback();
+            Thread.Sleep(1000);
+
+            if (_TapTo == 0 && _TapBack == 1) return true;
+            else return false;
+        }
         #region Tapto and Tapback
         public int Tapto()
         {
@@ -416,24 +431,14 @@ namespace Power_State_detect
                         FileManage.LogWirter(@".\Logs.txt", "Testcycle_Current :" + Testcycle_Current
                             + Environment.NewLine + "---------------------------------------------");
 
-                        
-                        //Serial.SetPos(TargetPos);
-                        //int TapTo = ChooseFun();
-                        //Thread.Sleep(1000);
 
-                        //Serial.SetPos(InitPos);
-                        //int TapBack = ChooseFun();
-                        //Thread.Sleep(1000);
-
-
-                        Tap(out TapTo, out TapBack);
+                        //Tap(out TapTo, out TapBack);
 
                         #region Test Success Area
-                        if (TapTo == 0 && TapBack == 1)
+                        if (Tap())
                         {
                             Success++;
                             FileManage.LogWirter(@".\Logs.txt", "This RUN: < PASS > :");
-                            
                             //SUCCESS
                         }
                         #endregion

@@ -16,7 +16,10 @@ namespace Power_State_detect
         [STAThread]
         static void Main()
         {
+
             string[] args = Environment.GetCommandLineArgs();
+            Proximity proximity = new Proximity();
+            proximity.Check_RFID_NFC();
 
             switch (args[1])
             {
@@ -25,23 +28,45 @@ namespace Power_State_detect
                     Application.SetCompatibleTextRenderingDefault(false);
                     Application.Run(new Form1());
                     break;
+
                 case "tap":
-                    Serial.AutodetectArduinoPort();
-                    Serial.Serial_Connect(Serial.arduino_port[0].ToString());
-
-                    switch (args[2])
+                    if(args.Length == 3 )
                     {
-                        case "tapto":
+                        Serial.AutodetectArduinoPort();
+                        Serial.Serial_Connect(Serial.arduino_port[0].ToString());
+                        Proximity.TargetPos = Serial.Serial_Read_EEPos();
 
-                            break;
+                        switch (args[2])
+                        {
+                            case "baseline":
+                                proximity.pre_Operation_test();
+                                Console.WriteLine(Proximity.Baseline_check);
+                                if (Proximity.Baseline_check)
+                                {
+                                    Serial.Serial_Write_EEPos(Proximity.TargetPos);
+                                    Console.WriteLine("Write: " + Proximity.TargetPos);
+                                    Proximity.TargetPos = Serial.Serial_Read_EEPos();
+                                    Console.WriteLine("Read: " + Proximity.TargetPos);
+                                }
+                                else
+                                {
+                                    Serial.Serial_Write_EEPos(99);
+                                }
+                                
+                                break;
 
-                        case "tapback":
+                            case "tapto":
+                                proximity.Tapto();
+                                break;
 
-                            break;
+                            case "tapback":
+                                proximity.Tapback();
+                                break;
 
-                        case "tap":
-
-                            break;
+                            case "tap":
+                                proximity.Tap();
+                                break;
+                        }
                     }
                     break;
 
