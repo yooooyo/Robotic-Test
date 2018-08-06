@@ -21,6 +21,7 @@ namespace Power_State_detect
             Proximity proximity = new Proximity();
             proximity.Check_RFID_NFC();
 
+
             switch (args[1])
             {
                 case "gui":
@@ -52,7 +53,7 @@ namespace Power_State_detect
                                 {
                                     Serial.Serial_Write_EEPos(99);
                                 }
-                                
+                                //Environment.ExitCode = 0;
                                 break;
 
                             case "tapto":

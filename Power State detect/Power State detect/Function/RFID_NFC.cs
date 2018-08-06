@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections;
 using System.Diagnostics;
-
+using System.IO;
 
 using System.Threading;
 
@@ -30,16 +30,18 @@ namespace Power_State_detect
         {
             {"Name",""},{"sdk",""}
         };
-
-        
         /// <summary>
         /// Choose use NFC function or RFID 
         /// </summary>
         public void Check_RFID_NFC()
         {
+            //string Username  = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string Username = Environment.UserName;
+            string APP = "devcon.exe";
+
             Proximity.RFID rFID = new RFID();
             Process process = new Process();
-            process.StartInfo.FileName = @".\devcon.exe";
+            process.StartInfo.FileName = @"C:\Users\"+ Username + @"\Desktop\RF\" + APP;
             process.StartInfo.Arguments = @"status =HIDClass *0c27*";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
@@ -87,9 +89,11 @@ namespace Power_State_detect
 
             private string cmd(string cmd)
             {
+                string Username = Environment.UserName;
+                string APP = "readercomm.exe";
                 processing = false;
                 Process process = new Process();
-                process.StartInfo.FileName = @".\readercomm.exe";
+                process.StartInfo.FileName = @"C:\Users\" + Username + @"\Desktop\RF\" + APP;
                 process.StartInfo.Arguments = "--" + cmd;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
@@ -130,9 +134,13 @@ namespace Power_State_detect
         {
             public int check()
             {
+
+                string Username = Environment.UserName;
+                string APP = "test_NFC.bat";
+
                 processing = false;
                 Process process = new Process();
-                process.StartInfo.FileName = @".\test_NFC.bat";
+                process.StartInfo.FileName = @"C:\Users\" + Username + @"\Desktop\RF\" + APP;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
                 //process.StartInfo.CreateNoWindow = true;

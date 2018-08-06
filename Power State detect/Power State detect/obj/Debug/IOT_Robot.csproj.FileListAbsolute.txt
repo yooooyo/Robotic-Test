@@ -20,4 +20,3 @@ C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\ob
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT_Robot.csproj.CoreCompileInputs.cache
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT Robot.exe
 C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT Robot.pdb
-C:\Users\TDAVID2\Documents\Robotic-Test\Power State detect\Power State detect\obj\Debug\IOT_Robot.csprojResolveAssemblyReference.cache
