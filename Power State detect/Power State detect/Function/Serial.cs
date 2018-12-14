@@ -36,6 +36,7 @@ namespace Power_State_detect
                     //arduino_port[array_count++] = deviceId;
                     arduino_port.Add(deviceId);
                     Console.Write(deviceId + " ");
+                    return;
                 }
             }
 
@@ -46,8 +47,11 @@ namespace Power_State_detect
                 {
                     arduino_port.Add(port);
                     Console.Write(port + " ");
+                    
                     //Console.WriteLine("get{0}",port);
                 }
+                Console.WriteLine("Choose One COM port");
+                Serial.arduino_port[0] = Console.ReadLine();
                     
             }
         }
@@ -109,6 +113,7 @@ namespace Power_State_detect
             Console.WriteLine("Serial Write : " + cmd);
             //FileManage.LogWirter(@".\Logs.txt", "Serial Send: "+ cmd);
         }
+
         public static int Serial_Read_EEPos()
         {
             int EEpos = new int();
@@ -133,7 +138,6 @@ namespace Power_State_detect
             Console.WriteLine("Write EEPROM END " + SerialRx);
             //if (SerialRx.StartsWith("W")) ;//Write Success
             //else;//Write Fail
-
         }
         #endregion
         #region Servo Control

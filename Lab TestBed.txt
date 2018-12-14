@@ -1,0 +1,68 @@
+Lab TestBed
+=================================================
+RFID/NFC
+command:
+		gui
+		tap
+		      baseline         'Find detect card area'
+		      tapto	       'Tap forward'
+		      tapback          'Tap backward'
+		      tap              'Tap once (forward and backward)'
+		s3 waketime	       
+		s4 waketime
+		restart
+		shutdown
+
+script examples: 
+		 %APP_LOCATION%/"IOT Robot.exe" gui
+		 %APP_LOCATION%/"IOT Robot.exe" tap baseline
+		 %APP_LOCATION%/"IOT Robot.exe" tap tapto
+		 %APP_LOCATION%/"IOT Robot.exe" tap tapback
+		 %APP_LOCATION%/"IOT Robot.exe" tap tap
+		 %APP_LOCATION%/"IOT Robot.exe" s3 10
+		 %APP_LOCATION%/"IOT Robot.exe" s4 20
+		 %APP_LOCATION%/"IOT Robot.exe" restart
+		 %APP_LOCATION%/"IOT Robot.exe" shutdown
+=================================================
+BT_Pen 
+command:
+		gui
+		cap
+		      sc		'single click pen'
+		      dc		'double click pen'
+		s3 waketime
+		s4 waketime
+		restart
+		shutdown
+
+script examples: 
+		 %APP_LOCATION%/BT_Pen.exe gui
+		 %APP_LOCATION%/BT_Pen.exe cap sc
+		 %APP_LOCATION%/BT_Pen.exe cap dc
+		 %APP_LOCATION%/BT_Pen.exe s3 10
+		 %APP_LOCATION%/BT_Pen.exe s4 20
+		 %APP_LOCATION%/BT_Pen.exe restart
+		 %APP_LOCATION%/BT_Pen.exe shutdown
+=================================================
+BT_Mouse 
+command:
+		gui
+		roll
+		      fw		'roll forward'
+		      bw		'roll backward'
+		      bwfw		'roll forward and backward '
+		s3 waketime
+		s4 waketime
+		restart
+		shutdown
+
+script examples: 
+		 %APP_LOCATION%/BT_Mouse.exe gui
+		 %APP_LOCATION%/BT_Mouse.exe roll fw
+		 %APP_LOCATION%/BT_Mouse.exe roll bw
+		 %APP_LOCATION%/BT_Mouse.exe roll bwfw
+		 %APP_LOCATION%/BT_Mouse.exe s3 10
+		 %APP_LOCATION%/BT_Mouse.exe s4 20
+		 %APP_LOCATION%/BT_Mouse.exe restart
+		 %APP_LOCATION%/BT_Mouse.exe shutdown
+=================================================

@@ -136,7 +136,11 @@ namespace Power_State_detect
                 //https://www.tenforums.com/tutorials/63070-enable-disable-wake-timers-windows-10-a.html
                 System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETACVALUEINDEX SCHEME_CURRENT 238c9fa8 - 0aad - 41ed - 83f4 - 97be242c8f20 bd3b718a-0680 - 4d9d - 8ab2 - e1d2b4ac806d 1");
                 System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8 - 0aad - 41ed - 83f4 - 97be242c8f20 bd3b718a-0680 - 4d9d - 8ab2 - e1d2b4ac806d 1");
-                
+                //disable require sign in page
+                //https://www.tenforums.com/tutorials/11129-turn-off-require-sign-wakeup-windows-10-a.html#option5
+                System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETDCVALUEINDEX SCHEME_CURRENT SUB_NONE CONSOLELOCK 0");
+                System.Diagnostics.Process.Start("C:\\windows\\system32\\powercfg.exe ", "/SETACVALUEINDEX SCHEME_CURRENT SUB_NONE CONSOLELOCK 0");
+
                 DateTime sleepon = DateTime.Now;
                 DateTime wakeon  = DateTime.Now.AddSeconds(ResumeFromSec);
                 long duetime = wakeon.ToFileTime();

@@ -67,6 +67,11 @@ namespace Power_State_detect
             {
                 Robot["Name"] = "NFC";
             }
+
+            if(Robot["Name"] == "")
+            {
+                Console.WriteLine("No RFID or NFC");
+            }
         }
 
         #region NFC RFID
@@ -110,7 +115,7 @@ namespace Power_State_detect
             public int check()
             {
                 var output = cmd("getid");
-
+                Console.WriteLine($"Get RFID {output}");
                 if (output.Contains("No Id Found")) return 1;
                 else return 0;
             }
@@ -152,6 +157,7 @@ namespace Power_State_detect
 
                 if (process.WaitForExit(3000))
                 {
+                    Console.WriteLine($"Get NFC {output}");
                     output = process.ExitCode;
                     return 0;
                 }
@@ -262,7 +268,9 @@ namespace Power_State_detect
                 //Use rfid or nfc Function
                 if (ChooseFun(pos) == 0)
                 {
+                    FileManage.LogWirter(@".\Logs.txt", $"Found Target Pos {pos.ToString()}");
                     result.Add(pos.ToString());
+                    break;
                 }
                 Thread.Sleep(1000);
             }

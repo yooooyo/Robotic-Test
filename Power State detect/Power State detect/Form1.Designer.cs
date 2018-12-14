@@ -102,7 +102,7 @@
             // btn_S3
             // 
             this.btn_S3.Location = new System.Drawing.Point(25, 92);
-            this.btn_S3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_S3.Margin = new System.Windows.Forms.Padding(4);
             this.btn_S3.Name = "btn_S3";
             this.btn_S3.Size = new System.Drawing.Size(100, 28);
             this.btn_S3.TabIndex = 1;
@@ -113,7 +113,7 @@
             // btn_S4
             // 
             this.btn_S4.Location = new System.Drawing.Point(25, 127);
-            this.btn_S4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_S4.Margin = new System.Windows.Forms.Padding(4);
             this.btn_S4.Name = "btn_S4";
             this.btn_S4.Size = new System.Drawing.Size(100, 28);
             this.btn_S4.TabIndex = 2;
@@ -134,7 +134,7 @@
             // btn_S5
             // 
             this.btn_S5.Location = new System.Drawing.Point(25, 162);
-            this.btn_S5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_S5.Margin = new System.Windows.Forms.Padding(4);
             this.btn_S5.Name = "btn_S5";
             this.btn_S5.Size = new System.Drawing.Size(100, 28);
             this.btn_S5.TabIndex = 4;
@@ -145,7 +145,7 @@
             // btn_shutdown
             // 
             this.btn_shutdown.Location = new System.Drawing.Point(25, 11);
-            this.btn_shutdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_shutdown.Margin = new System.Windows.Forms.Padding(4);
             this.btn_shutdown.Name = "btn_shutdown";
             this.btn_shutdown.Size = new System.Drawing.Size(100, 28);
             this.btn_shutdown.TabIndex = 5;
@@ -156,7 +156,7 @@
             // btn_logout
             // 
             this.btn_logout.Location = new System.Drawing.Point(25, 47);
-            this.btn_logout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_logout.Margin = new System.Windows.Forms.Padding(4);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(100, 37);
             this.btn_logout.TabIndex = 6;
@@ -168,7 +168,7 @@
             // 
             this.btn_serial_connect.BackColor = System.Drawing.Color.Salmon;
             this.btn_serial_connect.Location = new System.Drawing.Point(75, 218);
-            this.btn_serial_connect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_serial_connect.Margin = new System.Windows.Forms.Padding(4);
             this.btn_serial_connect.Name = "btn_serial_connect";
             this.btn_serial_connect.Size = new System.Drawing.Size(100, 28);
             this.btn_serial_connect.TabIndex = 7;
@@ -251,7 +251,7 @@
             this.cb_listComPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_listComPort.FormattingEnabled = true;
             this.cb_listComPort.Location = new System.Drawing.Point(75, 252);
-            this.cb_listComPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_listComPort.Margin = new System.Windows.Forms.Padding(4);
             this.cb_listComPort.Name = "cb_listComPort";
             this.cb_listComPort.Size = new System.Drawing.Size(99, 24);
             this.cb_listComPort.TabIndex = 12;
@@ -259,7 +259,7 @@
             // btn_serialsend
             // 
             this.btn_serialsend.Location = new System.Drawing.Point(216, 289);
-            this.btn_serialsend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_serialsend.Margin = new System.Windows.Forms.Padding(4);
             this.btn_serialsend.Name = "btn_serialsend";
             this.btn_serialsend.Size = new System.Drawing.Size(100, 28);
             this.btn_serialsend.TabIndex = 13;
@@ -270,7 +270,7 @@
             // tbx_serialsend
             // 
             this.tbx_serialsend.Location = new System.Drawing.Point(75, 290);
-            this.tbx_serialsend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbx_serialsend.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_serialsend.Name = "tbx_serialsend";
             this.tbx_serialsend.Size = new System.Drawing.Size(132, 22);
             this.tbx_serialsend.TabIndex = 14;
@@ -278,7 +278,7 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(75, 337);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(377, 56);
             this.trackBar1.TabIndex = 15;
@@ -287,7 +287,7 @@
             // trackBar2
             // 
             this.trackBar2.Location = new System.Drawing.Point(75, 384);
-            this.trackBar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBar2.Margin = new System.Windows.Forms.Padding(4);
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(377, 56);
             this.trackBar2.TabIndex = 16;
@@ -297,10 +297,10 @@
             this.tb_function_page.Controls.Add(this.Basic_page);
             this.tb_function_page.Controls.Add(this.RFID_NFC_page);
             this.tb_function_page.Location = new System.Drawing.Point(29, 26);
-            this.tb_function_page.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_function_page.Margin = new System.Windows.Forms.Padding(4);
             this.tb_function_page.Name = "tb_function_page";
             this.tb_function_page.SelectedIndex = 0;
-            this.tb_function_page.Size = new System.Drawing.Size(523, 496);
+            this.tb_function_page.Size = new System.Drawing.Size(508, 496);
             this.tb_function_page.TabIndex = 17;
             // 
             // Basic_page
@@ -328,9 +328,9 @@
             this.Basic_page.Controls.Add(this.lb_serial_list);
             this.Basic_page.Controls.Add(this.label1);
             this.Basic_page.Location = new System.Drawing.Point(4, 25);
-            this.Basic_page.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Basic_page.Margin = new System.Windows.Forms.Padding(4);
             this.Basic_page.Name = "Basic_page";
-            this.Basic_page.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Basic_page.Padding = new System.Windows.Forms.Padding(4);
             this.Basic_page.Size = new System.Drawing.Size(515, 467);
             this.Basic_page.TabIndex = 0;
             this.Basic_page.Text = "Basic";
@@ -347,7 +347,7 @@
             "50",
             "60"});
             this.cb_wakeupfromSec.Location = new System.Drawing.Point(228, 95);
-            this.cb_wakeupfromSec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_wakeupfromSec.Margin = new System.Windows.Forms.Padding(4);
             this.cb_wakeupfromSec.Name = "cb_wakeupfromSec";
             this.cb_wakeupfromSec.Size = new System.Drawing.Size(160, 24);
             this.cb_wakeupfromSec.TabIndex = 17;
@@ -381,10 +381,10 @@
             this.RFID_NFC_page.Controls.Add(label7);
             this.RFID_NFC_page.Controls.Add(this.cb_RFID_NFC_Running_mode);
             this.RFID_NFC_page.Location = new System.Drawing.Point(4, 25);
-            this.RFID_NFC_page.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RFID_NFC_page.Margin = new System.Windows.Forms.Padding(4);
             this.RFID_NFC_page.Name = "RFID_NFC_page";
-            this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.RFID_NFC_page.Size = new System.Drawing.Size(515, 467);
+            this.RFID_NFC_page.Padding = new System.Windows.Forms.Padding(4);
+            this.RFID_NFC_page.Size = new System.Drawing.Size(500, 467);
             this.RFID_NFC_page.TabIndex = 1;
             this.RFID_NFC_page.Text = "RFID/NFC";
             this.RFID_NFC_page.UseVisualStyleBackColor = true;
@@ -400,7 +400,7 @@
             "50",
             "60"});
             this.cb_RFID_NFC_wake_timer.Location = new System.Drawing.Point(356, 201);
-            this.cb_RFID_NFC_wake_timer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_RFID_NFC_wake_timer.Margin = new System.Windows.Forms.Padding(4);
             this.cb_RFID_NFC_wake_timer.Name = "cb_RFID_NFC_wake_timer";
             this.cb_RFID_NFC_wake_timer.Size = new System.Drawing.Size(107, 24);
             this.cb_RFID_NFC_wake_timer.TabIndex = 18;
@@ -409,7 +409,7 @@
             // 
             this.ck_RFID_NFC_Test_S4.AutoSize = true;
             this.ck_RFID_NFC_Test_S4.Location = new System.Drawing.Point(357, 158);
-            this.ck_RFID_NFC_Test_S4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ck_RFID_NFC_Test_S4.Margin = new System.Windows.Forms.Padding(4);
             this.ck_RFID_NFC_Test_S4.Name = "ck_RFID_NFC_Test_S4";
             this.ck_RFID_NFC_Test_S4.Size = new System.Drawing.Size(47, 21);
             this.ck_RFID_NFC_Test_S4.TabIndex = 14;
@@ -420,7 +420,7 @@
             // 
             this.ck_RFID_NFC_Test_S3.AutoSize = true;
             this.ck_RFID_NFC_Test_S3.Location = new System.Drawing.Point(357, 128);
-            this.ck_RFID_NFC_Test_S3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ck_RFID_NFC_Test_S3.Margin = new System.Windows.Forms.Padding(4);
             this.ck_RFID_NFC_Test_S3.Name = "ck_RFID_NFC_Test_S3";
             this.ck_RFID_NFC_Test_S3.Size = new System.Drawing.Size(47, 21);
             this.ck_RFID_NFC_Test_S3.TabIndex = 13;
@@ -430,7 +430,7 @@
             // btn_RFID_NFC_Bar
             // 
             this.btn_RFID_NFC_Bar.Location = new System.Drawing.Point(39, 439);
-            this.btn_RFID_NFC_Bar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_RFID_NFC_Bar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_RFID_NFC_Bar.Name = "btn_RFID_NFC_Bar";
             this.btn_RFID_NFC_Bar.Size = new System.Drawing.Size(449, 12);
             this.btn_RFID_NFC_Bar.TabIndex = 12;
@@ -488,7 +488,7 @@
             // 
             this.btn_RFID_NFC_Stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RFID_NFC_Stop.Location = new System.Drawing.Point(380, 404);
-            this.btn_RFID_NFC_Stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_RFID_NFC_Stop.Margin = new System.Windows.Forms.Padding(4);
             this.btn_RFID_NFC_Stop.Name = "btn_RFID_NFC_Stop";
             this.btn_RFID_NFC_Stop.Size = new System.Drawing.Size(100, 28);
             this.btn_RFID_NFC_Stop.TabIndex = 9;
@@ -499,7 +499,7 @@
             // 
             this.btn_RFID_NFC_Pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RFID_NFC_Pause.Location = new System.Drawing.Point(212, 404);
-            this.btn_RFID_NFC_Pause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_RFID_NFC_Pause.Margin = new System.Windows.Forms.Padding(4);
             this.btn_RFID_NFC_Pause.Name = "btn_RFID_NFC_Pause";
             this.btn_RFID_NFC_Pause.Size = new System.Drawing.Size(100, 28);
             this.btn_RFID_NFC_Pause.TabIndex = 9;
@@ -510,9 +510,9 @@
             // 
             this.groupBox1.Controls.Add(this.lb_RFID_NFC_Sdk_Version);
             this.groupBox1.Location = new System.Drawing.Point(47, 62);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(303, 55);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -531,7 +531,7 @@
             // 
             this.btn_RFID_NFC_Run.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RFID_NFC_Run.Location = new System.Drawing.Point(44, 404);
-            this.btn_RFID_NFC_Run.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_RFID_NFC_Run.Margin = new System.Windows.Forms.Padding(4);
             this.btn_RFID_NFC_Run.Name = "btn_RFID_NFC_Run";
             this.btn_RFID_NFC_Run.Size = new System.Drawing.Size(100, 28);
             this.btn_RFID_NFC_Run.TabIndex = 6;
@@ -544,7 +544,7 @@
             this.list_RFID_NFC_Test_Steps.FormattingEnabled = true;
             this.list_RFID_NFC_Test_Steps.ItemHeight = 16;
             this.list_RFID_NFC_Test_Steps.Location = new System.Drawing.Point(47, 128);
-            this.list_RFID_NFC_Test_Steps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.list_RFID_NFC_Test_Steps.Margin = new System.Windows.Forms.Padding(4);
             this.list_RFID_NFC_Test_Steps.Name = "list_RFID_NFC_Test_Steps";
             this.list_RFID_NFC_Test_Steps.Size = new System.Drawing.Size(301, 148);
             this.list_RFID_NFC_Test_Steps.TabIndex = 5;
@@ -553,7 +553,7 @@
             // 
             this.cb_RFID_NFC_Running_Times.FormattingEnabled = true;
             this.cb_RFID_NFC_Running_Times.Location = new System.Drawing.Point(88, 299);
-            this.cb_RFID_NFC_Running_Times.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_RFID_NFC_Running_Times.Margin = new System.Windows.Forms.Padding(4);
             this.cb_RFID_NFC_Running_Times.Name = "cb_RFID_NFC_Running_Times";
             this.cb_RFID_NFC_Running_Times.Size = new System.Drawing.Size(95, 24);
             this.cb_RFID_NFC_Running_Times.TabIndex = 1;
@@ -566,7 +566,7 @@
             "NFC",
             "Device No Found"});
             this.cb_RFID_NFC_Running_mode.Location = new System.Drawing.Point(96, 28);
-            this.cb_RFID_NFC_Running_mode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_RFID_NFC_Running_mode.Margin = new System.Windows.Forms.Padding(4);
             this.cb_RFID_NFC_Running_mode.Name = "cb_RFID_NFC_Running_mode";
             this.cb_RFID_NFC_Running_mode.Size = new System.Drawing.Size(164, 24);
             this.cb_RFID_NFC_Running_mode.TabIndex = 0;
@@ -577,7 +577,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 556);
             this.Controls.Add(this.tb_function_page);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

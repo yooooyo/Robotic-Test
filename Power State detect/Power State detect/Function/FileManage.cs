@@ -39,7 +39,7 @@ namespace Power_State_detect
         }
 
        public static void Log(string context)
-        {
+       {
             DateTimeOffset timeNow = DateTimeOffset.Now;
             string timeNow_type = "G";
             string TimeNow = timeNow.ToString(timeNow_type);
@@ -49,6 +49,6 @@ namespace Power_State_detect
             writer.WriteLine("-->" + TimeNow + " " + context);
             writer.Dispose();
             writer.Close();
-        }
+       }
     }
 }

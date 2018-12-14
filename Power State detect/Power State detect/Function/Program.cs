@@ -53,7 +53,7 @@ namespace Power_State_detect
                                 {
                                     Serial.Serial_Write_EEPos(99);
                                 }
-                                //Environment.ExitCode = 0;
+                                Environment.ExitCode = 0;
                                 break;
 
                             case "tapto":
@@ -98,6 +98,10 @@ namespace Power_State_detect
                     break;
                 case "shutdown":
                     Power.Options.Shutdown();
+                    break;
+
+                default:
+
                     break;
             }
             
