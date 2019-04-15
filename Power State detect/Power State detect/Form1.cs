@@ -238,6 +238,10 @@ namespace Power_State_detect
             {
                 Proximity.S4_flag = ck_RFID_NFC_Test_S4.Checked;
             }
+            if (ck_RFID_NFC_Delay.Checked)
+            {
+                Proximity.Delay_15s_flag = ck_RFID_NFC_Delay.Checked;
+            }
         }
         #endregion
 

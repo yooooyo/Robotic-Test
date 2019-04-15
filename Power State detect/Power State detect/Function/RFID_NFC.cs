@@ -182,7 +182,14 @@ namespace Power_State_detect
             switch (prox)
             {
                 case proximity.RFID:
+                    DateTime time_stamp1 = DateTime.Now;
+                    //Console.WriteLine($"Begin Read at {time_stamp1.ToString()}");
                     output = Func_rfid.check();
+                    DateTime time_stamp2 = DateTime.Now;
+                    //Console.WriteLine($"Finish Read at {time_stamp2.ToString()}");
+                    //Console.Write($"Read result :{output.ToString()}");
+                    //Console.Write($"Read period :{(time_stamp2-time_stamp1).ToString()}");
+                    if (output==0) FileManage.LogWirter(@".\CardTime.log", $"Period :{(time_stamp2 - time_stamp1).ToString()}");
                     break;
 
                 case proximity.NFC:
@@ -340,7 +347,7 @@ namespace Power_State_detect
         public static bool Baseline_check = new bool();
         static int pos;
         public static UInt32 _Total, _Success, _Fail;
-        public static bool S3_flag, S4_flag = new bool();
+        public static bool S3_flag = new bool(), S4_flag = new bool(), Delay_15s_flag = new bool();
         public UInt32 Total
         {
             get { return _Total; }
@@ -398,18 +405,30 @@ namespace Power_State_detect
             _TapTo = Tapto();
             Thread.Sleep(1000);
 
+            if (Delay_15s_flag)
+            {
+                Thread.Sleep(15000);
+            }
+
             //_TapBack = ChooseFun(InitPos);
             _TapBack = Tapback();
             Thread.Sleep(1000);
 
-            if (_TapTo == 0 && _TapBack == 1) return true;
+            if (_TapTo == 0 && _TapBack == 1) {
+                DateTime time_stamp2 = DateTime.Now;
+                
+                return true;
+            }
             else return false;
         }
         #region Tapto and Tapback
         public int Tapto()
         {
+            
             int _Tapto = new int();
             _Tapto = ChooseFun(TargetPos);
+            
+            
             Thread.Sleep(1000);
             return _Tapto;
         }
@@ -488,6 +507,7 @@ namespace Power_State_detect
                         }
                         #endregion
                     }
+                    FileManage.LogWirter(@".\CardTime.log", $"Average :{CardTimeAverage().ToString()}");
                     FileManage.LogWirter(@".\Logs.txt", "============RESULT=================");
                     FileManage.LogWirter(@".\Logs.txt", "PASS Count :" + Success.ToString());
                     FileManage.LogWirter(@".\Logs.txt", "FAIL Count :" + Fail.ToString());
@@ -495,6 +515,37 @@ namespace Power_State_detect
                 }
 
             }
+        }
+        private string readFile(string path)
+        {
+            string outdata = "";
+            try
+            {
+                using (StreamReader read = new StreamReader(path))
+                {
+                    outdata = read.ReadToEnd();
+                }
+            }
+            catch
+            {
+                return "";
+            }
+
+            return outdata;
+        }
+        private double CardTimeAverage()
+        {
+            string output = readFile(@".\CardTime.log");
+            List<double> period = new List<double>();
+
+            foreach (string line in output.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var span = TimeSpan.Parse(line.Split(new string[] { "Period :" }, StringSplitOptions.RemoveEmptyEntries)[1]).TotalSeconds;
+                period.Add(span);
+            }
+
+            return period.Average();
+
         }
         #endregion
     }
