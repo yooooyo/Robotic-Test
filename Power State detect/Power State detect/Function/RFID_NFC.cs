@@ -405,20 +405,25 @@ namespace Power_State_detect
             _TapTo = Tapto();
             Thread.Sleep(1000);
 
-            if (Delay_15s_flag)
-            {
-                Thread.Sleep(15000);
-            }
+
 
             //_TapBack = ChooseFun(InitPos);
             _TapBack = Tapback();
             Thread.Sleep(1000);
 
+
+
             if (_TapTo == 0 && _TapBack == 1) {
-                DateTime time_stamp2 = DateTime.Now;
-                
+
+                if (Delay_15s_flag)
+                {
+                    Thread.Sleep(15000);
+                }
                 return true;
             }
+
+
+
             else return false;
         }
         #region Tapto and Tapback
@@ -454,8 +459,6 @@ namespace Power_State_detect
                 Success = 0;
                 Fail = 0;
 
-                int TapTo = new int();
-                int TapBack = new int();
                 //Check TargetPOs is vaild
                 if (TargetPos >= 0 && Baseline_check)//check baseline check success
                 {
