@@ -4,7 +4,7 @@ Application to control arduino testing on RFID/NFC module on laptop with varies 
 
 ### Application
 
-| ![basic](./screenshot/basic.png) | ![rfid_nfc](./screenshot/RFID_NFC.png) |
+| ![basic](./screenshot/Basic.png) | ![rfid_nfc](./screenshot/RFID_NFC.png) |
 | :------------------------------ | :------------------------------------ |
 |            <ul><li><code>Power otions</code></li><li><code>Serial port</code></li></ul>             |                <ul><li><code>Auto switch RFID/NFC mode</code></li><li><code>Run cycle test</code></li></ul>
 
